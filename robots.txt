@@ -1,0 +1,13 @@
+# robots.txt for InventoryPro
+
+User-agent: *
+Allow: /
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /settings/
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://inventorypro.vercel.app/sitemap.xml
+

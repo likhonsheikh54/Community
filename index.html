@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Comprehensive inventory management system with integrated community features. Track stock, manage categories, engage customers, and build loyalty.">
+    <meta name="keywords" content="inventory management, community platform, customer engagement, stock control, product tracking, warehouse management">
+    <meta name="author" content="RecentCoders">
+    <meta name="google-site-verification" content="5URQPgJH6k1lqPj7T6wkSvi7SuHJnZ2xcwgT36zbFMI" />
+    <meta name="robots" content="index, follow">
+    
+    <title>InventoryPro - Complete Inventory & Community Management Solution</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="public/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="public/css/modal.css">
+    <link rel="stylesheet" href="public/css/toast.css">
+    <link rel="stylesheet" href="public/css/dashboard.css">
+    <link rel="stylesheet" href="public/css/installer.css">
+    <link rel="stylesheet" href="public/css/community.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "InventoryPro",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A comprehensive inventory management system with integrated community features for businesses of all sizes."
+    }
+    </script>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://inventorypro.vercel.app/">
+</head>
+<body>
+    <!-- Installer Section - Will be hidden after setup -->
+    <section id="installer-section" class="installer-container">
+        <div class="installer-wrapper">
+            <header class="installer-header">
+                <h1>InventoryPro Setup</h1>
+                <p>Complete the steps below to set up your inventory and community management system</p>
+            </header>
+            
+            <div class="installer-progress">
+                <div class="progress">
+                    <div id="installer-progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
+            
+            <div class="installer-steps">
+                <!-- Step 1: Welcome -->
+                <div id="installer-step-1" class="installer-step active">
+                    <h2>Welcome to InventoryPro</h2>
+                    <p>Thank you for choosing InventoryPro for your inventory and community management needs. This installer will guide you through setting up your system.</p>
+                    <p>InventoryPro is a comprehensive solution that helps you track inventory, manage categories, engage with customers, and build a thriving community - all with a user-friendly interface.</p>
+                    <div class="installer-features">
+                        <div class="feature">
+                            <i class="fas fa-boxes"></i>
+                            <h3>Inventory Tracking</h3>
+                            <p>Track stock levels, prices, and product details</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h3>Community Engagement</h3>
+                            <p>Build customer loyalty and foster collaboration</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-bell"></i>
+                            <h3>Smart Notifications</h3>
+                            <p>Stay informed about inventory and community activity</p>
+                        </div>
+                    </div>
+                    <div class="installer-actions">
+                        <button id="installer-next-1" class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Company Information -->
+                <div id="installer-step-2" class="installer-step">
+                    <h2>Company Information</h2>
+                    <p>Please provide your company details to personalize your system.</p>
+                    <form id="company-info-form">
+                        <div class="mb-3">
+                            <label for="company-name" class="form-label">Company Name*</label>
+                            <input type="text" class="form-control" id="installer-company-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="currency-symbol" class="form-label">Currency Symbol*</label>
+                            <input type="text" class="form-control" id="installer-currency-symbol" placeholder="$" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="low-stock-threshold" class="form-label">Low Stock Threshold*</label>
+                            <input type="number" class="form-control" id="installer-low-stock-threshold" min="1" value="5" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="theme" class="form-label">Default Theme</label>
+                            <select class="form-select" id="installer-theme">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="community-name" class="form-label">Community Name*</label>
+                            <input type="text" class="form-control" id="installer-community-name" placeholder="Your Community" required>
+                            <div class="form-text">This will be displayed to your community members</div>
+                        </div>
+                    </form>
+                    <div class="installer-actions">
+                        <button id="installer-prev-2" class="btn btn-outline-secondary">Back</button>
+                        <button id="installer-next-2" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Admin Account -->
+                <div id="installer-step-3" class="installer-step">
+                    <h2>Admin Account</h2>
+                    <p>Create an administrator account to manage your system.</p>
+                    <form id="admin-account-form">
+                        <div class="mb-3">
+                            <label for="admin-name" class="form-label">Full Name*</label>
+                            <input type="text" class="form-control" id="installer-admin-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-email" class="form-label">Email Address*</label>
+                            <input type="email" class="form-control" id="installer-admin-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-username" class="form-label">Username*</label>
+                            <input type="text" class="form-control" id="installer-admin-username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="admin-password" class="form-label">Password*</label>
+                            <input type="password" class="form-control" id="installer-admin-password" required>
+                            <div class="form-text">Password must be at least 8 characters long and include letters and numbers.</div>
+                        </div>
+                    </form>
+                    <div class="installer-actions">
+                        <button id="installer-prev-3" class="btn btn-outline-secondary">Back</button>
+                        <button id="installer-next-3" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Initial Categories -->
+                <div id="installer-step-4" class="installer-step">
+                    <h2>Initial Categories</h2>
+                    <p>Set up some initial categories for your inventory items. You can add more later.</p>
+                    <div id="installer-categories-container">
+                        <div class="installer-category">
+                            <div class="mb-3">
+                                <label class="form-label">Category Name*</label>
+                                <input type="text" class="form-control category-name" value="Electronics" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control category-description" value="Electronic devices and accessories">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Color</label>
+                                <input type="color" class="form-control form-control-color category-color" value="#3498db">
+                            </div>
+                        </div>
+                        <div class="installer-category">
+                            <div class="mb-3">
+                                <label class="form-label">Category Name*</label>
+                                <input type="text" class="form-control category-name" value="Office Supplies" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <input type="text" class="form-control category-description" value="Stationery and office equipment">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Color</label>
+                                <input type="color" class="form-control form-control-color category-color" value="#2ecc71">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="add-category-btn" class="btn btn-outline-primary mb-3">
+                        <i class="fas fa-plus"></i> Add Another Category
+                    </button>
+                    <div class="installer-actions">
+                        <button id="installer-prev-4" class="btn btn-outline-secondary">Back</button>
+                        <button id="installer-next-4" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Community Setup -->
+                <div id="installer-step-5" class="installer-step">
+                    <h2>Community Setup</h2>
+                    <p>Configure your community features to engage with customers and employees.</p>
+                    <form id="community-setup-form">
+                        <div class="mb-3">
+                            <label class="form-label">Enable Community Features</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="enable-community" checked>
+                                <label class="form-check-label" for="enable-community">Yes, enable community features</label>
+                            </div>
+                        </div>
+                        
+                        <div id="community-options">
+                            <h3 class="h5 mt-4 mb-3">Select Community Features</h3>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-forums" checked>
+                                        <label class="form-check-label" for="feature-forums">
+                                            <strong>Forums</strong>
+                                            <div class="text-muted small">Discussion boards for community interaction</div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-blogs" checked>
+                                        <label class="form-check-label" for="feature-blogs">
+                                            <strong>Blogs & News</strong>
+                                            <div class="text-muted small">Share articles and updates</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-qa" checked>
+                                        <label class="form-check-label" for="feature-qa">
+                                            <strong>Q&A Platform</strong>
+                                            <div class="text-muted small">Customer self-service support</div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-resources" checked>
+                                        <label class="form-check-label" for="feature-resources">
+                                            <strong>Resource Library</strong>
+                                            <div class="text-muted small">Share files and documents</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-events">
+                                        <label class="form-check-label" for="feature-events">
+                                            <strong>Events Calendar</strong>
+                                            <div class="text-muted small">Schedule and promote events</div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-gallery">
+                                        <label class="form-check-label" for="feature-gallery">
+                                            <strong>Gallery</strong>
+                                            <div class="text-muted small">Share images and media</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-clubs">
+                                        <label class="form-check-label" for="feature-clubs">
+                                            <strong>Clubs & Groups</strong>
+                                            <div class="text-muted small">Create micro-communities</div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="feature-subscriptions">
+                                        <label class="form-check-label" for="feature-subscriptions">
+                                            <strong>Subscriptions</strong>
+                                            <div class="text-muted small">Premium membership options</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3 mt-4">
+                                <label for="community-welcome" class="form-label">Welcome Message</label>
+                                <textarea class="form-control" id="community-welcome" rows="3" placeholder="Welcome to our community! We're excited to have you join us..."></textarea>
+                                <div class="form-text">This message will be displayed to new community members</div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="installer-actions">
+                        <button id="installer-prev-5" class="btn btn-outline-secondary">Back</button>
+                        <button id="installer-next-5" class="btn btn-primary">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 6: Finalize Installation -->
+                <div id="installer-step-6" class="installer-step">
+                    <h2>Complete Installation</h2>
+                    <p>You're almost done! Review your settings and complete the installation.</p>
+                    <div class="installer-summary">
+                        <h3>Installation Summary</h3>
+                        <div class="summary-item">
+                            <strong>Company:</strong> <span id="summary-company"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Currency:</strong> <span id="summary-currency"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Admin:</strong> <span id="summary-admin"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Categories:</strong> <span id="summary-categories"></span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Community:</strong> <span id="summary-community"></span>
+                        </div>
+                    </div>
+                    <div class="installer-actions">
+                        <button id="installer-prev-6" class="btn btn-outline-secondary">Back</button>
+                        <button id="installer-complete" class="btn btn-success">Complete Installation</button>
+                    </div>
+                </div>
+                
+                <!-- Step 7: Installation Complete -->
+                <div id="installer-step-7" class="installer-step">
+                    <div class="installation-complete">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Installation Complete!</h2>
+                        <p>Your InventoryPro system has been successfully set up and is ready to use.</p>
+                    </div>
+                    <div class="installer-actions">
+                        <button id="installer-start" class="btn btn-primary">Start Using InventoryPro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application - Will be shown after installation -->
+    <div id="app-container" class="app-container d-none">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>InventoryPro</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-page="dashboard">
+                        <a href="#"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li data-page="inventory">
+                        <a href="#"><i class="fas fa-boxes"></i> <span>Inventory</span></a>
+                    </li>
+                    <li data-page="categories">
+                        <a href="#"><i class="fas fa-tags"></i> <span>Categories</span></a>
+                    </li>
+                    <li data-page="reports">
+                        <a href="#"><i class="fas fa-file-alt"></i> <span>Reports</span></a>
+                    </li>
+                    <li class="nav-section-title">
+                        <span>Community</span>
+                    </li>
+                    <li data-page="forums">
+                        <a href="#"><i class="fas fa-comments"></i> <span>Forums</span></a>
+                    </li>
+                    <li data-page="blog">
+                        <a href="#"><i class="fas fa-blog"></i> <span>Blog & News</span></a>
+                    </li>
+                    <li data-page="qa">
+                        <a href="#"><i class="fas fa-question-circle"></i> <span>Q&A</span></a>
+                    </li>
+                    <li data-page="resources">
+                        <a href="#"><i class="fas fa-folder-open"></i> <span>Resources</span></a>
+                    </li>
+                    <li data-page="events">
+                        <a href="#"><i class="fas fa-calendar-alt"></i> <span>Events</span></a>
+                    </li>
+                    <li data-page="gallery">
+                        <a href="#"><i class="fas fa-images"></i> <span>Gallery</span></a>
+                    </li>
+                    <li data-page="clubs">
+                        <a href="#"><i class="fas fa-users"></i> <span>Clubs</span></a>
+                    </li>
+                    <li data-page="members">
+                        <a href="#"><i class="fas fa-user-friends"></i> <span>Members</span></a>
+                    </li>
+                    <li class="nav-section-title">
+                        <span>Settings</span>
+                    </li>
+                    <li data-page="settings">
+                        <a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="export-data" class="btn btn-outline">
+                    <i class="fas fa-download"></i> <span>Export Data</span>
+                </button>
+                <label for="import-data" class="btn btn-outline">
+                    <i class="fas fa-upload"></i> <span>Import Data</span>
+                </label>
+                <input type="file" id="import-data" accept=".json,.csv" style="display: none;">
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <button id="notifications-btn" class="btn-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notification-count">0</span>
+                    </button>
+                    <div class="user-profile dropdown">
+                        <a href="#" class="dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="public/images/user-avatar.png" alt="User Avatar">
+                            <span id="user-display-name">Admin User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Account Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" id="logout-btn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Dashboard Page -->
+                <section id="dashboard-page" class="page active">
+                    <div class="page-header">
+                        <h1>Dashboard</h1>
+                        <p class="last-updated">Last updated: <span id="last-updated-time">Just now</span></p>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-cubes"></i></div>
+                            <div class="stat-content">
+                                <h3>Total Items</h3>
+                                <p id="total-items">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-tags"></i></div>
+                            <div class="stat-content">
+                                <h3>Categories</h3>
+                                <p id="total-categories">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="stat-content">
+                                <h3>Total Value</h3>
+                                <p id="total-value">$0.00</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="stat-content">
+                                <h3>Low Stock</h3>
+                                <p id="low-stock-count">0</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="dashboard-charts mb-4">
+                                <div class="chart-container">
+                                    <h3>Inventory by Category</h3>
+                                    <div class="chart" id="category-chart"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="dashboard-recent">
+                                <h3>Recent Activity</h3>
+                                <div class="activity-log" id="activity-log">
+                                    <p class="empty-message">No recent activity.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="chart-container mb-4">
+                                <h3>Low Stock Items</h3>
+                                <div class="low-stock-list" id="low-stock-list">
+                                    <p class="empty-message">No low stock items found.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="chart-container">
+                                <h3>Community Engagement</h3>
+                                <div class="community-stats">
+                                    <div class="community-stat-item">
+                                        <i class="fas fa-users"></i>
+                                        <div>
+                                            <h4>Members</h4>
+                                            <p id="total-members">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="community-stat-item">
+                                        <i class="fas fa-comments"></i>
+                                        <div>
+                                            <h4>Discussions</h4>
+                                            <p id="total-discussions">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="community-stat-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <div>
+                                            <h4>Resources</h4>
+                                            <p id="total-resources">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="community-stat-item">
+                                        <i class="fas fa-question-circle"></i>
+                                        <div>
+                                            <h4>Questions</h4>
+                                            <p id="total-questions">0</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Inventory Page -->
+                <section id="inventory-page" class="page">
+                    <div class="page-header">
+                        <h1>Inventory Items</h1>
+                        <button id="add-item-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add New Item
+                        </button>
+                    </div>
+                    
+                    <div class="inventory-filters">
+                        <div class="filter-group">
+                            <label for="category-filter">Category:</label>
+                            <select id="category-filter" class="form-select">
+                                <option value="all">All Categories</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="sort-by">Sort By:</label>
+                            <select id="sort-by" class="form-select">
+                                <option value="name">Name</option>
+                                <option value="quantity">Quantity</option>
+                                <option value="price">Price</option>
+                                <option value="updated">Last Updated</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="sort-order">Order:</label>
+                            <select id="sort-order" class="form-select">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="inventory-table-container">
+                        <table class="inventory-table table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>SKU</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Value</th>
+                                    <th>Last Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-table-body">
+                                <!-- Inventory items will be inserted here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Categories Page -->
+                <section id="categories-page" class="page">
+                    <div class="page-header">
+                        <h1>Categories</h1>
+                        <button id="add-category-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add New Category
+                        </button>
+                    </div>
+                    
+                    <div class="categories-container">
+                        <div class="categories-list" id="categories-list">
+                            <!-- Categories will be inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Page -->
+                <section id="reports-page" class="page">
+                    <div class="page-header">
+                        <h1>Reports</h1>
+                    </div>
+                    
+                    <div class="reports-container">
+                        <div class="report-card">
+                            <div class="report-icon"><i class="fas fa-file-export"></i></div>
+                            <div class="report-content">
+                                <h3>Inventory Report</h3>
+                                <p>Generate a complete inventory report</p>
+                                <button class="btn btn-outline" id="generate-inventory-report">Generate</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon"><i class="fas fa-exclamation-circle"></i></div>
+                            <div class="report-content">
+                                <h3>Low Stock Report</h3>
+                                <p>View all items with low stock levels</p>
+                                <button class="btn btn-outline" id="generate-low-stock-report">Generate</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="report-content">
+                                <h3>Category Analysis</h3>
+                                <p>Analyze inventory by category</p>
+                                <button class="btn btn-outline" id="generate-category-report">Generate</button>
+                            </div>
+                        </div>
+                        <div class="report-card">
+                            <div class="report-icon"><i class="fas fa-history"></i></div>
+                            <div class="report-content">
+                                <h3>Activity Log</h3>
+                                <p>View all inventory activities</p>
+                                <button class="btn btn-outline" id="generate-activity-report">Generate</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-preview mt-4 d-none" id="report-preview-container">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h2 id="report-title">Report Title</h2>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-primary me-2" id="export-report-csv">
+                                        <i class="fas fa-file-csv me-1"></i> Export CSV
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-primary me-2" id="export-report-pdf">
+                                        <i class="fas fa-file-pdf me-1"></i> Export PDF
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" id="close-report">
+                                        <i class="fas fa-times me-1"></i> Close
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body" id="report-content">
+                                <!-- Report content will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Forums Page -->
+                <section id="forums-page" class="page">
+                    <div class="page-header">
+                        <h1>Community Forums</h1>
+                        <button id="add-forum-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Create New Topic
+                        </button>
+                    </div>
+                    
+                    <div class="forums-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Forum Categories</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="forum-categories">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-category="all">All Categories</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="general">General Discussion</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="products">Products & Services</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="support">Technical Support</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="feedback">Feedback & Suggestions</a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button id="manage-forum-categories-btn" class="btn btn-sm btn-outline-secondary w-100">
+                                            <i class="fas fa-cog me-1"></i> Manage Categories
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Forum Statistics</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Topics:</span>
+                                            <span id="forum-total-topics">0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Posts:</span>
+                                            <span id="forum-total-posts">0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Members:</span>
+                                            <span id="forum-total-members">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h3 class="h5 mb-0">Discussion Topics</h3>
+                                        <div class="input-group" style="max-width: 300px;">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Search topics..." id="forum-search">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="forum-topics-list">
+                                        <!-- Forum topics will be inserted here -->
+                                        <div class="empty-message p-4">No topics found. Be the first to create a discussion!</div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Forum pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Recent Activity</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="forum-recent-activity">
+                                        <!-- Recent forum activity will be inserted here -->
+                                        <div class="empty-message p-4">No recent activity.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Blog Page -->
+                <section id="blog-page" class="page">
+                    <div class="page-header">
+                        <h1>Blog & News Management</h1>
+                        <button id="add-blog-post-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add New Post
+                        </button>
+                    </div>
+                    
+                    <div class="blog-container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="blog-posts" id="blog-posts-list">
+                                    <!-- Blog posts will be inserted here -->
+                                    <div class="empty-message">No blog posts found. Click "Add New Post" to create one.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>Blog Statistics</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="blog-stat">
+                                            <span>Total Posts</span>
+                                            <span id="total-posts">0</span>
+                                        </div>
+                                        <div class="blog-stat">
+                                            <span>Published</span>
+                                            <span id="published-posts">0</span>
+                                        </div>
+                                        <div class="blog-stat">
+                                            <span>Drafts</span>
+                                            <span id="draft-posts">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card mt-4">
+                                    <div class="card-header">
+                                        <h3>Categories</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="blog-categories-list">
+                                            <!-- Blog categories will be inserted here -->
+                                            <div class="empty-message">No blog categories found.</div>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-primary mt-2" id="add-blog-category-btn">
+                                            <i class="fas fa-plus"></i> Add Category
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Q&A Page -->
+                <section id="qa-page" class="page">
+                    <div class="page-header">
+                        <h1>Q&A Platform</h1>
+                        <button id="add-question-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Ask a Question
+                        </button>
+                    </div>
+                    
+                    <div class="qa-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Categories</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="qa-categories">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-category="all">All Questions</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="products">Products</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="services">Services</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="technical">Technical Support</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="billing">Billing & Payments</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Top Contributors</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="qa-top-contributors">
+                                        <!-- Top contributors will be inserted here -->
+                                        <div class="empty-message p-4">No contributors yet.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <h3 class="h5 mb-0 me-3">Questions</h3>
+                                            <div class="btn-group btn-group-sm" role="group">
+                                                <button type="button" class="btn btn-outline-secondary active" data-filter="all">All</button>
+                                                <button type="button" class="btn btn-outline-secondary" data-filter="unanswered">Unanswered</button>
+                                                <button type="button" class="btn btn-outline-secondary" data-filter="answered">Answered</button>
+                                            </div>
+                                        </div>
+                                        <div class="input-group" style="max-width: 300px;">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Search questions..." id="qa-search">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="qa-questions-list">
+                                        <!-- Questions will be inserted here -->
+                                        <div class="empty-message p-4">No questions found. Be the first to ask a question!</div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Q&A pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Resources Page -->
+                <section id="resources-page" class="page">
+                    <div class="page-header">
+                        <h1>Resource Library</h1>
+                        <button id="add-resource-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Resource
+                        </button>
+                    </div>
+                    
+                    <div class="resources-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Resource Types</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="resource-types">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-type="all">All Resources</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-type="document">Documents</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-type="video">Videos</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-type="presentation">Presentations</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-type="template">Templates</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Tags</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="resource-tags" id="resource-tags">
+                                            <!-- Resource tags will be inserted here -->
+                                            <span class="badge bg-primary me-1 mb-1">tutorial</span>
+                                            <span class="badge bg-primary me-1 mb-1">guide</span>
+                                            <span class="badge bg-primary me-1 mb-1">manual</span>
+                                            <span class="badge bg-primary me-1 mb-1">reference</span>
+                                            <span class="badge bg-primary me-1 mb-1">template</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h3 class="h5 mb-0">Resources</h3>
+                                        <div class="input-group" style="max-width: 300px;">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Search resources..." id="resources-search">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" id="resources-list">
+                                            <!-- Resources will be inserted here -->
+                                            <div class="empty-message">No resources found. Click "Add Resource" to upload.</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Resources pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Events Page -->
+                <section id="events-page" class="page">
+                    <div class="page-header">
+                        <h1>Events Calendar</h1>
+                        <button id="add-event-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Event
+                        </button>
+                    </div>
+                    
+                    <div class="events-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Event Categories</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="event-categories">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-category="all">All Events</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="webinar">Webinars</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="workshop">Workshops</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="conference">Conferences</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="meetup">Meetups</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Upcoming Events</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="upcoming-events">
+                                        <!-- Upcoming events will be inserted here -->
+                                        <div class="empty-message p-4">No upcoming events.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Calendar</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="events-calendar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Gallery Page -->
+                <section id="gallery-page" class="page">
+                    <div class="page-header">
+                        <h1>Media Gallery</h1>
+                        <button id="add-media-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Upload Media
+                        </button>
+                    </div>
+                    
+                    <div class="gallery-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Albums</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="gallery-albums">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-album="all">All Media</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-album="products">Product Images</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-album="events">Event Photos</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-album="team">Team Photos</a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button id="add-album-btn" class="btn btn-sm btn-outline-secondary w-100">
+                                            <i class="fas fa-plus me-1"></i> Create Album
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h3 class="h5 mb-0">Gallery</h3>
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-outline-secondary active" data-view="grid">
+                                                <i class="fas fa-th"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary" data-view="list">
+                                                <i class="fas fa-list"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" id="gallery-items">
+                                            <!-- Gallery items will be inserted here -->
+                                            <div class="empty-message">No media found. Click "Upload Media" to add images or videos.</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Gallery pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Clubs Page -->
+                <section id="clubs-page" class="page">
+                    <div class="page-header">
+                        <h1>Clubs & Groups</h1>
+                        <button id="create-club-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Create New Club
+                        </button>
+                    </div>
+                    
+                    <div class="clubs-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Categories</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="club-categories">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-category="all">All Clubs</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="interest">Interest Groups</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="product">Product Groups</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="regional">Regional Groups</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-category="professional">Professional Groups</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">My Clubs</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="my-clubs">
+                                        <!-- User's clubs will be inserted here -->
+                                        <div class="empty-message p-4">You haven't joined any clubs yet.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h3 class="h5 mb-0">Available Clubs</h3>
+                                        <div class="input-group" style="max-width: 300px;">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Search clubs..." id="clubs-search">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" id="clubs-list">
+                                            <!-- Clubs will be inserted here -->
+                                            <div class="empty-message">No clubs found. Click "Create New Club" to start a community.</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Clubs pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Members Page -->
+                <section id="members-page" class="page">
+                    <div class="page-header">
+                        <h1>Community Members</h1>
+                        <button id="invite-member-btn" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i> Invite Member
+                        </button>
+                    </div>
+                    
+                    <div class="members-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Member Filters</h3>
+                                    </div>
+                                    <div class="list-group list-group-flush" id="member-filters">
+                                        <a href="#" class="list-group-item list-group-item-action active" data-filter="all">All Members</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-filter="admin">Administrators</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-filter="moderator">Moderators</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-filter="regular">Regular Members</a>
+                                        <a href="#" class="list-group-item list-group-item-action" data-filter="new">New Members</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="h5 mb-0">Member Statistics</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Total Members:</span>
+                                            <span id="total-community-members">0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Active Today:</span>
+                                            <span id="active-today-members">0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>New This Week:</span>
+                                            <span id="new-this-week-members">0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Subscription Members:</span>
+                                            <span id="subscription-members">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h3 class="h5 mb-0">Members Directory</h3>
+                                        <div class="input-group" style="max-width: 300px;">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Search members..." id="members-search">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row" id="members-list">
+                                            <!-- Members will be inserted here -->
+                                            <div class="empty-message">No members found.</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <nav aria-label="Members pagination">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Page -->
+                <section id="settings-page" class="page">
+                    <div class="page-header">
+                        <h1>Settings</h1>
+                    </div>
+                    
+                    <div class="settings-container">
+                        <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general-settings" type="button" role="tab" aria-controls="general-settings" aria-selected="true">General</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="inventory-tab" data-bs-toggle="tab" data-bs-target="#inventory-settings" type="button" role="tab" aria-controls="inventory-settings" aria-selected="false">Inventory</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="community-tab" data-bs-toggle="tab" data-bs-target="#community-settings" type="button" role="tab" aria-controls="community-settings" aria-selected="false">Community</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="appearance-tab" data-bs-toggle="tab" data-bs-target="#appearance-settings" type="button" role="tab" aria-controls="appearance-settings" aria-selected="false">Appearance</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="seo-tab" data-bs-toggle="tab" data-bs-target="#seo-settings" type="button" role="tab" aria-controls="seo-settings" aria-selected="false">SEO</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="integrations-tab" data-bs-toggle="tab" data-bs-target="#integrations-settings" type="button" role="tab" aria-controls="integrations-settings" aria-selected="false">Integrations</button>
+                            </li>
+                        </ul>
+                        
+                        <div class="tab-content p-4 border border-top-0 rounded-bottom" id="settingsTabContent">
+                            <!-- General Settings -->
+                            <div class="tab-pane fade show active" id="general-settings" role="tabpanel" aria-labelledby="general-tab">
+                                <form id="general-settings-form">
+                                    <div class="mb-3">
+                                        <label for="company-name" class="form-label">Company Name</label>
+                                        <input type="text" id="company-name" name="companyName" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="currency-symbol" class="form-label">Currency Symbol</label>
+                                        <input type="text" id="currency-symbol" name="currencySymbol" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="community-name" class="form-label">Community Name</label>
+                                        <input type="text" id="community-name" name="communityName" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="admin-email" class="form-label">Admin Email</label>
+                                        <input type="email" id="admin-email" name="adminEmail" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save General Settings</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Inventory Settings -->
+                            <div class="tab-pane fade" id="inventory-settings" role="tabpanel" aria-labelledby="inventory-tab">
+                                <form id="inventory-settings-form">
+                                    <div class="mb-3">
+                                        <label for="low-stock-threshold" class="form-label">Low Stock Threshold</label>
+                                        <input type="number" id="low-stock-threshold" name="lowStockThreshold" class="form-control" min="1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="default-category" class="form-label">Default Category</label>
+                                        <select id="default-category" name="defaultCategory" class="form-select">
+                                            <option value="">Select a category</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="items-per-page" class="form-label">Items Per Page</label>
+                                        <input type="number" id="items-per-page" name="itemsPerPage" class="form-control" min="5" max="100">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Inventory Settings</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Community Settings -->
+                            <div class="tab-pane fade" id="community-settings" role="tabpanel" aria-labelledby="community-tab">
+                                <form id="community-settings-form">
+                                    <div class="mb-3">
+                                        <label class="form-label">Enable Community Features</label>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="enable-community-features" name="enableCommunity">
+                                            <label class="form-check-label" for="enable-community-features">Yes, enable community features</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="community-feature-settings">
+                                        <h3 class="h5 mt-4 mb-3">Feature Settings</h3>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-forums" name="enableForums">
+                                                    <label class="form-check-label" for="enable-forums">
+                                                        <strong>Forums</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-blogs" name="enableBlogs">
+                                                    <label class="form-check-label" for="enable-blogs">
+                                                        <strong>Blogs & News</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-qa" name="enableQA">
+                                                    <label class="form-check-label" for="enable-qa">
+                                                        <strong>Q&A Platform</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-resources" name="enableResources">
+                                                    <label class="form-check-label" for="enable-resources">
+                                                        <strong>Resource Library</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-events" name="enableEvents">
+                                                    <label class="form-check-label" for="enable-events">
+                                                        <strong>Events Calendar</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-gallery" name="enableGallery">
+                                                    <label class="form-check-label" for="enable-gallery">
+                                                        <strong>Gallery</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-clubs" name="enableClubs">
+                                                    <label class="form-check-label" for="enable-clubs">
+                                                        <strong>Clubs & Groups</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="enable-subscriptions" name="enableSubscriptions">
+                                                    <label class="form-check-label" for="enable-subscriptions">
+                                                        <strong>Subscriptions</strong>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3 mt-4">
+                                            <label for="community-welcome-message" class="form-label">Welcome Message</label>
+                                            <textarea class="form-control" id="community-welcome-message" name="welcomeMessage" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="btn btn-primary">Save Community Settings</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Appearance Settings -->
+                            <div class="tab-pane fade" id="appearance-settings" role="tabpanel" aria-labelledby="appearance-tab">
+                                <form id="appearance-settings-form">
+                                    <div class="mb-3">
+                                        <label for="theme" class="form-label">Theme</label>
+                                        <select id="theme" name="theme" class="form-select">
+                                            <option value="light">Light</option>
+                                            <option value="dark">Dark</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="primary-color" class="form-label">Primary Color</label>
+                                        <input type="color" id="primary-color" name="primaryColor" class="form-control form-control-color" value="#3498db">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="secondary-color" class="form-label">Secondary Color</label>
+                                        <input type="color" id="secondary-color" name="secondaryColor" class="form-control form-control-color" value="#2ecc71">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="logo-upload" class="form-label">Logo</label>
+                                        <input type="file" id="logo-upload" name="logo" class="form-control" accept="image/*">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="favicon-upload" class="form-label">Favicon</label>
+                                        <input type="file" id="favicon-upload" name="favicon" class="form-control" accept="image/*">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Appearance Settings</button>
+                                </form>
+                            </div>
+                            
+                            <!-- SEO Settings -->
+                            <div class="tab-pane fade" id="seo-settings" role="tabpanel" aria-labelledby="seo-tab">
+                                <form id="seo-settings-form">
+                                    <div class="mb-3">
+                                        <label for="site-title" class="form-label">Site Title</label>
+                                        <input type="text" id="site-title" name="siteTitle" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="site-description" class="form-label">Site Description</label>
+                                        <textarea id="site-description" name="siteDescription" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="site-keywords" class="form-label">Site Keywords</label>
+                                        <input type="text" id="site-keywords" name="siteKeywords" class="form-control">
+                                        <div class="form-text">Separate keywords with commas</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="google-analytics" class="form-label">Google Analytics ID</label>
+                                        <input type="text" id="google-analytics" name="googleAnalytics" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="google-verification" class="form-label">Google Site Verification</label>
+                                        <input type="text" id="google-verification" name="googleVerification" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save SEO Settings</button>
+                                </form>
+                            </div>
+                            
+                            <!-- Integrations Settings -->
+                            <div class="tab-pane fade" id="integrations-settings" role="tabpanel" aria-labelledby="integrations-tab">
+                                <form id="integrations-settings-form">
+                                    <div class="mb-3">
+                                        <label for="email-service" class="form-label">Email Service</label>
+                                        <select id="email-service" name="emailService" class="form-select">
+                                            <option value="none">None</option>
+                                            <option value="smtp">SMTP</option>
+                                            <option value="mailchimp">Mailchimp</option>
+                                            <option value="sendgrid">SendGrid</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="payment-gateway" class="form-label">Payment Gateway</label>
+                                        <select id="payment-gateway" name="paymentGateway" class="form-select">
+                                            <option value="none">None</option>
+                                            <option value="stripe">Stripe</option>
+                                            <option value="paypal">PayPal</option>
+                                            <option value="square">Square</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="social-login" class="form-label">Social Login</label>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="enable-google-login" name="enableGoogleLogin">
+                                            <label class="form-check-label" for="enable-google-login">
+                                                Enable Google Login
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" id="enable-facebook-login" name="enableFacebookLogin">
+                                            <label class="form-check-label" for="enable-facebook-login">
+                                                Enable Facebook Login
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="enable-twitter-login" name="enableTwitterLogin">
+                                            <label class="form-check-label" for="enable-twitter-login">
+                                                Enable Twitter Login
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Save Integration Settings</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <!-- Add/Edit Item Modal -->
+    <div class="modal fade" id="item-modal" tabindex="-1" aria-labelledby="item-modal-title" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="item-modal-title">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="item-form">
+                        <input type="hidden" id="item-id">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="item-name" class="form-label">Item Name*</label>
+                                <input type="text" id="item-name" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="item-category" class="form-label">Category*</label>
+                                <select id="item-category" class="form-select" required>
+                                    <option value="">Select a category</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="item-sku" class="form-label">SKU*</label>
+                                <input type="text" id="item-sku" class="form-control" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="item-quantity" class="form-label">Quantity*</label>
+                                <input type="number" id="item-quantity" class="form-control" min="0" required>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="item-price" class="form-label">Price*</label>
+                                <input type="number" id="item-price" class="form-control" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="item-description" class="form-label">Description</label>
+                            <textarea id="item-description" class="form-control" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="item-image" class="form-label">Image</label>
+                            <input type="file" id="item-image" class="form-control" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-item-btn">Save Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="category-modal" tabindex="-1" aria-labelledby="category-modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="category-modal-title">Add New Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="category-form">
+                        <input type="hidden" id="category-id">
+                        <div class="mb-3">
+                            <label for="category-name" class="form-label">Category Name*</label>
+                            <input type="text" id="category-name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category-description" class="form-label">Description</label>
+                            <textarea id="category-description" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category-color" class="form-label">Color</label>
+                            <input type="color" id="category-color" class="form-control form-control-color" value="#3498db">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="save-category-btn">Save Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Scripts -->
+    <script src="public/js/utils.js"></script>
+    <script src="public/js/storage.js"></script>
+    <script src="public/js/toast.js"></script>
+    <script src="public/js/modal.js"></script>
+    <script src="public/js/chart.js"></script>
+    <script src="public/js/inventory.js"></script>
+    <script src="public/js/categories.js"></script>
+    <script src="public/js/dashboard.js"></script>
+    <script src="public/js/settings.js"></script>
+    <script src="public/js/blog.js"></script>
+    <script src="public/js/reports.js"></script>
+    <script src="public/js/community.js"></script>
+    <script src="public/js/forums.js"></script>
+    <script src="public/js/qa.js"></script>
+    <script src="public/js/resources.js"></script>
+    <script src="public/js/events.js"></script>
+    <script src="public/js/gallery.js"></script>
+    <script src="public/js/clubs.js"></script>
+    <script src="public/js/members.js"></script>
+    <script src="public/js/installer.js"></script>
+    <script src="public/js/app.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MEASUREMENT_ID');
+    </script>
+    
+    <!-- Ahrefs Analytics -->
+    <script async src="https://analytics.ahrefs.com/analytics.js" data-key="wiWZ34OV9BQBL4YirUXs+g"></script>
+</body>
+</html>
+
